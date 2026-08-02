@@ -1,0 +1,358 @@
+Phase 4: Strings in Java (Complete Detailed Notes)
+
+1. What is String?
+
+A String is a sequence of characters.
+
+Example:
+
+    String name = "Vivek";
+
+"Vivek" ek String object hai.
+
+------------------------------------------------------------------------
+
+2. String Class
+
+Java me String ek class hai jo java.lang package me hoti hai.
+
+    String s = "Hello";
+
+Actually JVM internally:
+
+    String s = new String("Hello");
+
+Lekin String Literal use karne par JVM String Pool ka use karta hai.
+
+------------------------------------------------------------------------
+
+3. String Declaration
+
+Method 1: String Literal (Recommended)
+
+    String s1 = "Java";
+
+Memory:
+
+Stack - s1 → “Java”
+
+String Pool - “Java”
+
+------------------------------------------------------------------------
+
+Method 2: Using new Keyword
+
+    String s2 = new String("Java");
+
+Memory:
+
+Stack - s2 →
+
+Heap - New String Object (“Java”)
+
+String Pool - “Java”
+
+Yahan ek extra object banta hai.
+
+------------------------------------------------------------------------
+
+4. String Pool (Very Important)
+
+String Pool Heap ka special area hai.
+
+Example:
+
+    String s1 = "Java";
+    String s2 = "Java";
+
+Sirf ek object banta hai aur dono references usi object ko point karte
+hain.
+
+Agar:
+
+    String s3 = new String("Java");
+
+To ek naya Heap object bhi create hota hai.
+
+------------------------------------------------------------------------
+
+5. Why String is Immutable?
+
+Immutable matlab object create hone ke baad uski value change nahi hoti.
+
+Example:
+
+    String s = "Java";
+    s = "Python";
+
+Purana "Java" object wahi rehta hai. Naya "Python" object create hota
+hai aur reference update hota hai.
+
+Reasons
+
+-   Security
+-   Thread Safety
+-   Better Performance
+-   String Pool support
+
+------------------------------------------------------------------------
+
+6. == vs equals()
+
+== Operator
+
+Reference compare karta hai.
+
+    String s1 = "Java";
+    String s2 = "Java";
+    System.out.println(s1 == s2);
+
+Output:
+
+    true
+
+Example:
+
+    String s1 = new String("Java");
+    String s2 = new String("Java");
+    System.out.println(s1 == s2);
+
+Output:
+
+    false
+
+equals()
+
+Content compare karta hai.
+
+    String s1 = new String("Java");
+    String s2 = new String("Java");
+    System.out.println(s1.equals(s2));
+
+Output:
+
+    true
+
+Difference
+
+-   == → Reference compare
+-   equals() → Content compare
+
+------------------------------------------------------------------------
+
+7. compareTo()
+
+Alphabetically compare karta hai.
+
+    System.out.println("A".compareTo("B"));   // -1
+    System.out.println("B".compareTo("A"));   // 1
+    System.out.println("Java".compareTo("Java")); // 0
+
+------------------------------------------------------------------------
+
+8. Important String Methods
+
+length()
+
+    String s="Java";
+    System.out.println(s.length());
+
+Output: 4
+
+charAt()
+
+    System.out.println("Java".charAt(2));
+
+Output: v
+
+toUpperCase()
+
+    System.out.println("java".toUpperCase());
+
+Output: JAVA
+
+toLowerCase()
+
+    System.out.println("JAVA".toLowerCase());
+
+Output: java
+
+substring()
+
+    String s="Programming";
+    System.out.println(s.substring(3));
+    System.out.println(s.substring(3,7));
+
+Outputs: - gramming - gram
+
+contains()
+
+    System.out.println("Programming".contains("gram"));
+
+Output: true
+
+startsWith()
+
+    System.out.println("Programming".startsWith("Pro"));
+
+Output: true
+
+endsWith()
+
+    System.out.println("Programming".endsWith("ing"));
+
+Output: true
+
+indexOf()
+
+    System.out.println("Programming".indexOf("g"));
+
+Output: 3
+
+lastIndexOf()
+
+    System.out.println("Programming".lastIndexOf("g"));
+
+Output: 10
+
+replace()
+
+    System.out.println("Java".replace('a','o'));
+
+Output:
+
+    Jovo
+
+trim()
+
+    System.out.println("  Java  ".trim());
+
+Output:
+
+    Java
+
+split()
+
+    String s="Java Python C++";
+    String[] arr=s.split(" ");
+
+Result: - Java - Python - C++
+
+isEmpty()
+
+    System.out.println("".isEmpty());
+
+Output:
+
+    true
+
+------------------------------------------------------------------------
+
+9. StringBuffer
+
+-   Mutable
+-   Thread Safe
+-   Slower than StringBuilder
+
+Example:
+
+    StringBuffer sb=new StringBuffer("Java");
+    sb.append(" Developer");
+    System.out.println(sb);
+
+Output:
+
+    Java Developer
+
+------------------------------------------------------------------------
+
+10. StringBuilder
+
+-   Mutable
+-   Not Thread Safe
+-   Faster
+
+Example:
+
+    StringBuilder sb=new StringBuilder("Java");
+    sb.append(" Full Stack");
+    System.out.println(sb);
+
+Output:
+
+    Java Full Stack
+
+------------------------------------------------------------------------
+
+String vs StringBuffer vs StringBuilder
+
+  Feature       String   StringBuffer   StringBuilder
+  ------------- -------- -------------- ---------------
+  Mutable       No       Yes            Yes
+  Thread Safe   N/A      Yes            No
+  Fast          No       Medium         Yes
+  String Pool   Yes      No             No
+
+------------------------------------------------------------------------
+
+11. Interview Questions
+
+Why is String Immutable?
+
+-   Security
+-   Thread Safety
+-   String Pool
+-   Better Performance
+-   Stable hashCode
+
+String vs StringBuffer
+
+-   String → Immutable
+-   StringBuffer → Mutable
+
+StringBuffer vs StringBuilder
+
+-   StringBuffer → Thread Safe
+-   StringBuilder → Faster
+
+------------------------------------------------------------------------
+
+12. Practice Programs
+
+1.  Reverse String
+2.  Palindrome
+3.  Count Vowels
+4.  Count Words
+5.  Count Characters
+6.  Count Digits
+7.  Remove Spaces
+8.  Remove Duplicate Characters
+9.  Find Duplicate Characters
+10. Character Frequency
+11. Anagram Check
+12. Longest Word
+13. Shortest Word
+14. Reverse Each Word
+15. Capitalize First Letter
+16. Toggle Case
+17. Compress String
+18. Check Rotation
+19. First Non-Repeating Character
+20. First Repeating Character
+21. Sort Characters
+
+------------------------------------------------------------------------
+
+Interview Preparation Checklist
+
+1.  String Basics
+2.  String Memory
+3.  String Pool
+4.  Immutable
+5.  == vs equals()
+6.  compareTo()
+7.  Important Methods
+8.  StringBuffer
+9.  StringBuilder
+10. Coding Problems
+11. Interview Questions
