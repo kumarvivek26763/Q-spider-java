@@ -1,0 +1,336 @@
+JAVA PHASE 2 - OBJECT ORIENTED PROGRAMMING (OOP)
+
+This file contains concise but complete notes with examples.
+
+  ------------------------------------------------------------
+  1. CLASS
+  ------------------------------------------------------------
+  Definition: A class is a blueprint or template used to
+  create objects.
+
+  Example:
+
+  class Student { int rollNo; String name; }
+
+  Explanation: - Student is the class. - rollNo and name are
+  data members.
+  ------------------------------------------------------------
+
+2. OBJECT
+
+Definition: An object is a real instance of a class.
+
+Example:
+
+Student s1 = new Student();
+
+Memory: Stack: s1 —–>
+
+Heap: Student Object rollNo = 0 name = null
+
+Access:
+
+s1.rollNo = 101; s1.name = “Vivek”;
+
+  ------------------------------------------------------------
+  3. CONSTRUCTORS
+  ------------------------------------------------------------
+  Definition: A constructor initializes an object. Constructor
+  name must be the same as class name. It has no return type.
+
+  Default Constructor
+
+  class Student{ Student(){ System.out.println(“Object
+  Created”); } }
+
+  Parameterized Constructor
+
+  class Student{ int id; String name;
+
+  Student(int id,String name){ this.id=id; this.name=name; } }
+
+  Constructor Overloading
+
+  Student(){} Student(int id){} Student(int id,String name){}
+
+  this() calls another constructor in the same class.
+  ------------------------------------------------------------
+
+4. THIS KEYWORD
+
+Uses: 1. Refer current object. 2. Call current class constructor. 3.
+Pass current object. 4. Return current object.
+
+Example:
+
+class Student{ int id;
+
+    Student(int id){
+        this.id=id;
+    }
+
+}
+
+  ------------------------------------------------------------
+  5. STATIC KEYWORD
+  ------------------------------------------------------------
+  Static belongs to class, not object.
+
+  Example:
+
+  class Student{ static String college=“QSpiders”; int rollNo;
+  }
+
+  Access:
+
+  Student.college
+
+  Memory: Static variables are stored once for the class.
+  Objects contain only instance variables.
+
+  Static Method
+
+  static void show(){ System.out.println(“Hello”); }
+
+  Call:
+
+  Student.show();
+
+  Static Block
+
+  static{ System.out.println(“Executed once when class
+  loads”); }
+  ------------------------------------------------------------
+
+6. FINAL KEYWORD
+
+final variable
+
+final int AGE=18;
+
+Cannot change value.
+
+final method
+
+final void display(){}
+
+Cannot override.
+
+final class
+
+final class Demo{}
+
+Cannot inherit.
+
+  ------------------------------------------------------------
+  7. ENCAPSULATION
+  ------------------------------------------------------------
+  Wrapping data and methods together. Use private variables
+  with getter/setter.
+
+  Example:
+
+  class Student{
+
+  private int id;
+
+  public void setId(int id){ this.id=id; }
+
+  public int getId(){ return id; } }
+
+  Advantages: Data Hiding Security Maintainability
+  ------------------------------------------------------------
+
+8. INHERITANCE
+
+Definition: One class acquires properties of another.
+
+class Animal{ void eat(){ System.out.println(“Eating”); } }
+
+class Dog extends Animal{ void bark(){ System.out.println(“Barking”); }
+}
+
+Dog d=new Dog(); d.eat(); d.bark();
+
+Types: Single Multilevel Hierarchical
+
+Java does not support multiple inheritance using classes. Interfaces
+provide multiple inheritance.
+
+super keyword: super() calls parent constructor. super.method() calls
+parent method. super.variable accesses parent variable.
+
+  ------------------------------------------------------------
+  9. POLYMORPHISM
+  ------------------------------------------------------------
+  One interface, many forms.
+
+  Compile Time: Method Overloading
+
+  Runtime: Method Overriding
+  ------------------------------------------------------------
+
+10. METHOD OVERLOADING
+
+Same method name with different parameters.
+
+class Demo{
+
+    void add(int a,int b){}
+
+    void add(int a,int b,int c){}
+
+    void add(double a,double b){}
+
+}
+
+Resolved at compile time.
+
+  ------------------------------------------------------------
+  11. METHOD OVERRIDING
+  ------------------------------------------------------------
+  Subclass provides new implementation.
+
+  class Animal{ void sound(){ System.out.println(“Animal”); }
+  }
+
+  class Dog extends Animal{
+
+  @Override void sound(){ System.out.println(“Bark”); } }
+
+  Animal a=new Dog(); a.sound();
+
+  Output: Bark
+
+  Resolved at runtime.
+  ------------------------------------------------------------
+
+12. ABSTRACTION
+
+Hide implementation and show only essential features.
+
+abstract class Vehicle{
+
+    abstract void start();
+
+    void stop(){
+        System.out.println("Stopped");
+    }
+
+}
+
+class Bike extends Vehicle{
+
+    void start(){
+        System.out.println("Bike Started");
+    }
+
+}
+
+  ------------------------------------------------------------
+  13. INTERFACE
+  ------------------------------------------------------------
+  Interface contains contract.
+
+  interface Animal{ void sound(); }
+
+  class Dog implements Animal{
+
+  public void sound(){ System.out.println(“Bark”); } }
+
+  One class can implement multiple interfaces.
+  ------------------------------------------------------------
+
+14. OBJECT CLASS
+
+Every class extends Object.
+
+Important methods:
+
+toString() equals() hashCode() getClass() clone()
+
+Example:
+
+Student s=new Student();
+
+System.out.println(s.toString());
+
+  ------------------------------------------------------------
+  15. INSTANCEOF
+  ------------------------------------------------------------
+  Checks object type.
+
+  Animal a=new Dog();
+
+  System.out.println(a instanceof Dog);
+
+  Output: true
+  ------------------------------------------------------------
+
+16. WRAPPER CLASSES
+
+Primitive -> Object
+
+int -> Integer char -> Character double -> Double boolean -> Boolean
+
+Autoboxing
+
+Integer x=10;
+
+Auto Unboxing
+
+int y=x;
+
+Useful methods
+
+Integer.parseInt(“100”)
+
+Output: 100
+
+Integer.valueOf(“200”)
+
+Returns Integer object.
+
+  ---------------------------------
+  IMPORTANT INTERVIEW DIFFERENCES
+  ---------------------------------
+
+Class vs Object Class = Blueprint Object = Instance
+
+Overloading vs Overriding Overloading: Same class Different parameters
+Compile Time
+
+Overriding: Parent and Child Same signature Runtime
+
+Abstract Class vs Interface
+
+Abstract Class: Can have constructors Can have normal methods Single
+inheritance
+
+Interface: No constructor Multiple inheritance Methods are abstract by
+default (plus default/static methods in modern Java)
+
+Static vs Non Static
+
+Static: Belongs to class One copy
+
+Non Static: Belongs to object Separate copy for each object
+
+  -------------------
+  PRACTICE PROGRAMS
+  -------------------
+
+1.  Student class
+2.  Employee class
+3.  Constructor overloading
+4.  Bank Account using Encapsulation
+5.  Single Inheritance
+6.  Multilevel Inheritance
+7.  Method Overloading
+8.  Method Overriding
+9.  Abstract Class Example
+10. Interface Example
+11. Wrapper Class Example
+12. instanceof Example
+
+End of Phase 2 Notes.
