@@ -14,7 +14,12 @@ public class BankAcoountDriver {
 
 
 
-        System.out.println(ac1.accountNumber);
+
+        // follow lifo (last in first out)
+
+
+
+     
        
     
 
