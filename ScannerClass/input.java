@@ -8,6 +8,7 @@ public class input{
           a=sc.nextInt();
           System.out.print("Enter the second number of b :");
           b=sc.nextInt();
+          System.out.print("")
 
           System.out.println("Sum of a and b: " + (a+b));
 
